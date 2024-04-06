@@ -1,10 +1,9 @@
 import unittest
 
 def is_palindrome(mystring):
+    mystring = mystring.replace(" ", "")
     for indice in range(0, len(mystring)):
-        print(mystring[indice] + " --> " + mystring[-(indice +1)])
-        if mystring[indice] !=  mystring[-(indice+1)]:
-            print("no es")
+        if mystring[indice] != mystring[-(indice+1)]:
             return False
     return True
 
@@ -61,6 +60,35 @@ class TestPalindrome(unittest.TestCase):
         resultado = is_palindrome('neuqueM')
         self.assertEqual(resultado, False)
 
+    def test_NeuqueN(self):
+        resultado = is_palindrome('Neu queN')
+        self.assertEqual(resultado, True)
+
+    def test_reconocer(self):
+        resultado = is_palindrome('reconocer')
+        self.assertEqual(resultado, True)
+
+    def test_oso(self):
+        resultado = is_palindrome('oso')
+        self.assertEqual(resultado, True)
+
+    def test_sometemos(self):
+        resultado = is_palindrome('sometemos')
+        self.assertEqual(resultado, True)
+
+    def test_1221(self):
+        resultado = is_palindrome('1221')
+        self.assertEqual(resultado, True)
+
+    def test_1226(self):
+        resultado = is_palindrome('1226')
+        self.assertEqual(resultado, False)
+
+    def test_12021(self):
+        resultado = is_palindrome('120 21')
+        self.assertEqual(resultado, True)
+
+if __name__ == '__main__':
 
 
-unittest.main()
+  unittest.main()
